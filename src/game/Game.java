@@ -1,9 +1,6 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package java2dgame;
+package game;
 
+import gfx.SpreetSheet;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -32,6 +29,8 @@ public class Game extends Canvas implements Runnable {
     
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer() ).getData();
+    
+    private SpreetSheet spreetSheet = new SpreetSheet("/sprite_sheet.png");
 
     public Game() {
         setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -117,6 +116,7 @@ public class Game extends Canvas implements Runnable {
             createBufferStrategy(3);
             return;
         }
+        System.out.println("PING");
         Graphics g = bs.getDrawGraphics();
         //g.setColor(Color.BLACK);
         //g.fillRect(0, 0, getWidth(), getHeight()); 
